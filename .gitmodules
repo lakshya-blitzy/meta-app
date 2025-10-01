@@ -1,0 +1,3 @@
+[submodule "clients/ecp-client"]
+	path = clients/ecp-client
+	url = https://github.com/lakshya-blitzy/ecp-client.git
