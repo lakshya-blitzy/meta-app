@@ -1,3 +1,6 @@
 [submodule "clients/ecp-client"]
 	path = clients/ecp-client
 	url = https://github.com/lakshya-blitzy/ecp-client.git
+[submodule "test/clients/ecp-client"]
+	path = test/clients/ecp-client
+	url = https://github.com/lakshya-blitzy/ecp-client.git
