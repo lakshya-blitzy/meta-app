@@ -1,17 +1,22 @@
 "# Meta App Repository
 
-A minimal Node.js HTTP server demonstrating basic server implementation using the built-in `http` module. This lightweight server responds to all HTTP requests with a simple "Hello, World!" message, making it perfect for learning Node.js fundamentals, testing network configurations, or serving as a template for more complex applications.
+A minimal HTTP server demonstrating basic server implementation in **both Node.js and Python 3 Flask**. This lightweight server responds to all HTTP requests with a simple "Hello, World!" message, making it perfect for learning web server fundamentals, testing network configurations, or serving as a template for more complex applications.
+
+**Available Implementations:**
+- 🟢 **Node.js Version** (`server.js`) - Uses built-in `http` module with zero dependencies
+- 🐍 **Python 3 Flask Version** (`app.py`) - Uses Flask framework with identical behavior
 
 **Key Features:**
-- 🚀 Zero external dependencies - uses only Node.js built-in modules
+- 🚀 Multiple implementation options - choose Node.js or Python
 - 🔒 Security-first design with localhost-only binding by default
-- 📝 Comprehensive JSDoc documentation for code clarity
+- 📝 Comprehensive documentation (JSDoc for Node.js, docstrings for Python)
 - 🧪 Includes Java-based test automation via Git submodules
-- ⚡ Lightweight and fast startup
+- ⚡ Lightweight and fast startup in both implementations
+- 🔄 Feature parity - both implementations behave identically
 
 **Technology Stack:**
-- Node.js (v14.0+ recommended, tested on v20.19.5)
-- Built-in HTTP module for server functionality
+- **Node.js:** v14.0+ recommended (tested on v20.19.5) - Built-in HTTP module
+- **Python:** v3.7+ recommended (tested on v3.12.3) - Flask 3.0+ framework
 
 ---
 
@@ -35,15 +40,26 @@ A minimal Node.js HTTP server demonstrating basic server implementation using th
 
 ## Prerequisites
 
-Before running the Meta App Repository server, ensure you have the following installed:
+Before running the Meta App Repository server, ensure you have the following installed based on which implementation you want to run:
 
-### Required Software
+### For Node.js Implementation (server.js)
 
 - **Node.js**: Version 14.0 or higher (tested on v20.19.5)
   - Download from [nodejs.org](https://nodejs.org/)
   - Verify installation: `node --version`
 - **npm**: Version 6.0 or higher (bundled with Node.js)
   - Verify installation: `npm --version`
+
+### For Python 3 Flask Implementation (app.py)
+
+- **Python 3**: Version 3.7 or higher (tested on v3.12.3)
+  - Download from [python.org](https://www.python.org/)
+  - Verify installation: `python3 --version`
+- **pip**: Python package manager (bundled with Python)
+  - Verify installation: `pip3 --version`
+
+### Common Requirements
+
 - **Git**: For cloning the repository and managing submodules
   - Download from [git-scm.com](https://git-scm.com/)
 
@@ -81,19 +97,44 @@ git submodule update --init --recursive
 
 **Note:** Submodule initialization is optional and only needed if you plan to run the automated test suite.
 
-### 3. Verify Node.js Installation
+### 3. Choose Your Implementation
 
-Ensure Node.js is properly installed and meets version requirements:
+This repository provides two implementations with identical behavior:
 
+#### Option A: Node.js Implementation (server.js)
+
+**Verify Node.js Installation:**
 ```bash
 node --version
 ```
 
 **Expected output:** `v14.0.0` or higher (e.g., `v20.19.5`)
 
-### 4. No Dependencies to Install
+**No Dependencies to Install:** The Node.js server uses only built-in modules, so no `npm install` is required!
 
-This project has **zero external dependencies**. The server uses only Node.js built-in modules, so no `npm install` is required!
+#### Option B: Python 3 Flask Implementation (app.py)
+
+**Verify Python Installation:**
+```bash
+python3 --version
+```
+
+**Expected output:** `3.7.0` or higher (e.g., `3.12.3`)
+
+**Install Flask Dependencies:**
+
+Create a virtual environment (recommended):
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Install required packages:
+```bash
+pip3 install -r requirements.txt
+```
+
+This will install Flask 3.0+ and its dependencies.
 
 ---
 
@@ -101,7 +142,9 @@ This project has **zero external dependencies**. The server uses only Node.js bu
 
 Get the server running in 30 seconds:
 
-### Start the Server
+### Choose and Start Your Preferred Implementation
+
+#### Option A: Node.js Implementation
 
 ```bash
 node server.js
@@ -112,7 +155,29 @@ node server.js
 Server running at http://127.0.0.1:3000/
 ```
 
+#### Option B: Python 3 Flask Implementation
+
+If using a virtual environment, activate it first:
+```bash
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Run the Flask server:
+```bash
+python3 app.py
+```
+
+**Expected output:**
+```
+Server running at http://127.0.0.1:3000/
+ * Serving Flask app 'app'
+ * Debug mode: off
+ * Running on http://127.0.0.1:3000
+```
+
 ### Access the Endpoint
+
+Both implementations provide identical behavior and responses.
 
 **Option 1: Using a Web Browser**
 
@@ -276,7 +341,10 @@ HOST=0.0.0.0 PORT=8080 node server.js
 ```
 meta-app/
 ├── README.md                    # This file - comprehensive project documentation
-├── server.js                    # Main Node.js HTTP server with JSDoc comments
+├── server.js                    # Node.js HTTP server with JSDoc comments
+├── app.py                       # Python 3 Flask HTTP server (identical behavior to server.js)
+├── requirements.txt             # Python dependencies for Flask implementation
+├── venv/                        # Python virtual environment (created during setup)
 ├── .gitmodules                  # Git submodule configuration
 ├── clients/
 │   └── ecp-client/              # Git submodule: Java-based Cucumber test automation
@@ -292,7 +360,10 @@ meta-app/
 ### File Descriptions
 
 - **README.md**: Complete project documentation including setup, API reference, and deployment guidance
-- **server.js**: The main application file containing a minimal HTTP server implementation with comprehensive JSDoc comments
+- **server.js**: Node.js implementation of the HTTP server with comprehensive JSDoc comments
+- **app.py**: Python 3 Flask implementation of the HTTP server with comprehensive docstrings
+- **requirements.txt**: Python package dependencies (Flask 3.0+) for the Python implementation
+- **venv/**: Python virtual environment directory (created when setting up Flask)
 - **.gitmodules**: Configuration file defining Git submodules for test automation
 - **clients/ecp-client/**: Java-based test automation using Cucumber BDD framework for API testing
 - **test/clients/ecp-client/**: Reference copy of test automation (duplicate submodule)
@@ -315,15 +386,23 @@ git submodule update --init --recursive
 
 ### Development Mode
 
-For local development, run the server directly with Node.js:
+Both implementations can be run directly for local development:
 
+**Node.js:**
 ```bash
 node server.js
 ```
 
+**Python Flask:**
+```bash
+# Activate virtual environment first
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+python3 app.py
+```
+
 This is suitable for:
 - Local testing and development
-- Learning Node.js fundamentals
+- Learning web server fundamentals
 - Quick prototyping
 
 ### Production Considerations
@@ -375,6 +454,41 @@ Enable and start:
 ```bash
 sudo systemctl enable meta-app
 sudo systemctl start meta-app
+```
+
+**For Python Flask - Using Gunicorn (Production WSGI Server):**
+
+Flask's built-in server is for development only. For production, use Gunicorn:
+
+Install Gunicorn:
+```bash
+pip3 install gunicorn
+```
+
+Run with Gunicorn:
+```bash
+# Run with 4 worker processes
+gunicorn -w 4 -b 127.0.0.1:3000 app:app
+
+# Or with systemd
+# Create /etc/systemd/system/meta-app-flask.service:
+```
+
+```ini
+[Unit]
+Description=Meta App Flask HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/path/to/meta-app
+Environment="PATH=/path/to/meta-app/venv/bin"
+ExecStart=/path/to/meta-app/venv/bin/gunicorn -w 4 -b 127.0.0.1:3000 app:app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 #### 2. Reverse Proxy
