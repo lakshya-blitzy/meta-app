@@ -1,4 +1,4 @@
-"# Meta App Repository
+# Meta App Repository
 
 A minimal HTTP server demonstrating basic server implementation in **both Node.js and Python 3 Flask**. This lightweight server responds to all HTTP requests with a simple "Hello, World!" message, making it perfect for learning web server fundamentals, testing network configurations, or serving as a template for more complex applications.
 
@@ -734,4 +734,4 @@ For guidance on choosing a license, visit [choosealicense.com](https://chooseali
 
 ---
 
-**Repository maintained as a minimal Node.js server demonstration and template.**" 
+**Repository maintained as a minimal Node.js server demonstration and template.**
