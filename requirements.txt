@@ -1,0 +1,14 @@
+# Python Dependencies for Meta App Repository Flask Server
+# 
+# This file lists all Python packages required to run the Flask implementation
+# of the Meta App Repository HTTP server (app.py).
+#
+# Installation:
+#   pip3 install -r requirements.txt
+#
+# Python Version: 3.7+
+
+# Flask web framework
+# Version 3.0+ is recommended for latest features and security updates
+# Flask is used to create the HTTP server that replicates the Node.js server.js behavior
+Flask>=3.0.0
